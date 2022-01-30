@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Made with <3 by EnbyKat for the Soda Linux project
+
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget
@@ -107,16 +109,16 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#3cb2fc', '#3cb2fc'], border_width=5, margin=8),
-    layout.Max(),
+   # layout.Columns(border_focus_stack=['#000000', '#ffffff'], border_width=5, margin=8),
+    #layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
+     layout.Bsp(margin=8),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    #layout.MonadTall(),
     # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
+     layout.RatioTile(),
+    #layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -131,10 +133,10 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(padding=20),
-                widget.GroupBox(padding=20),
+                widget.GroupBox(padding=20,foreground="#ffffff"),
                 widget.Prompt(padding=20),
                 widget.WindowName(padding=20),
                 widget.Chord(
@@ -144,12 +146,11 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(padding=20),
-                #widget.TextBox("You're hot as fuck"),
                 #widget.Volume(padding=0),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p', padding=20,)
                # widget.QuickExit(),
             ],
-            52,
+            48, background=["#0f0f0f", "#000000"]
         ),
     ),
 ]
@@ -194,4 +195,4 @@ auto_minimize = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "Qtile"
