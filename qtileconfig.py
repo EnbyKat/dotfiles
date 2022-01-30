@@ -24,7 +24,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Made with <3 by EnbyKat for the Soda Linux project
 
 from typing import List  # noqa: F401
 
@@ -125,8 +124,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=24,
+    font='JetBrains Mono Bold',
+    fontsize=19,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -135,8 +134,9 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(padding=20),
-                widget.GroupBox(padding=20,foreground="#ffffff"),
+                widget.CurrentLayout(padding=20, background="#000000"),
+                widget.GroupBox(padding=20,foreground="#ffffff",background='#000000'),
+                widget.TextBox(padding=0, fontsize='62', text='', foreground='#000000'),
                 widget.Prompt(padding=20),
                 widget.WindowName(padding=20),
                 widget.Chord(
@@ -145,12 +145,13 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(padding=20),
+                widget.TextBox(padding=0, text="", fontsize="76", foreground="#000000"),
+                widget.Systray(padding=20, background="#000000"),
                 #widget.Volume(padding=0),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p', padding=20,)
+                widget.Clock(format='%Y-%m-%d %a %I:%M %p', padding=20,background="#000000")
                # widget.QuickExit(),
             ],
-            48, background=["#0f0f0f", "#000000"]
+            48, background="#0f0f0f"
         ),
     ),
 ]
