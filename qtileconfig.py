@@ -112,11 +112,11 @@ layouts = [
     #layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-     layout.Bsp(margin=8),
+#     layout.Bsp(margin=8),
     # layout.Matrix(),
     #layout.MonadTall(),
     # layout.MonadWide(),
-     layout.RatioTile(),
+     layout.RatioTile(margin=10),
     #layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
@@ -130,29 +130,38 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+transparent="000000"
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.CurrentLayout(padding=20, background="#000000"),
                 widget.GroupBox(padding=20,foreground="#ffffff",background='#000000'),
-                widget.TextBox(padding=0, fontsize='62', text='', foreground='#000000'),
+#                widget.TextBox(padding=0, fontsize='62', text='', foreground='#000000'),
                 widget.Prompt(padding=20),
-                widget.WindowName(padding=20),
+               # widget.WindowName(padding=20),
+                widget.Spacer(opacity=0.5),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox(padding=0, text="", fontsize="76", foreground="#000000"),
+#                widget.TextBox(padding=0, text="", fontsize="76", foreground="#000000"),
                 widget.Systray(padding=20, background="#000000"),
                 #widget.Volume(padding=0),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p', padding=20,background="#000000")
                # widget.QuickExit(),
             ],
-            48, background="#0f0f0f"
+            48, margin=[15,10,5,10], background=transparent
         ),
+        #bottom=bar.Bar(
+        #    [
+        #        widget.Spacer(),
+        #    ],
+        #    48
+        #),
     ),
 ]
 
